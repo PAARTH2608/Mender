@@ -4,8 +4,9 @@ import styled from "styled-components";
 import Loader from "../Loader";
 import * as tf from "@tensorflow/tfjs";
 import * as qna from "@tensorflow-models/qna";
+import { motion } from "framer-motion";
 
-const ParaDiv = styled.div`
+const ParaDiv = styled(motion.div)`
   height: ${(props) => props.height};
   width: 90%;
   border-radius: 10px;
@@ -14,7 +15,7 @@ const ParaDiv = styled.div`
   padding: 1.5vh;
   margin-bottom: 5vh;
 `;
-const ParaDivHlp = styled.div`
+const ParaDivHlp = styled(motion.div)`
   height: ${(props) => props.height};
   width: 80%;
   border-radius: 10px;
@@ -66,7 +67,7 @@ const InputDivInput = styled.input`
   font-size: 1.3em;
   text-align: center;
 `;
-const HeaderDiv = styled.div`
+const HeaderDiv = styled(motion.div)`
   height: 80vh;
   width: 5%;
   box-shadow: 20px 20px 60px #78a4aa, -20px -20px 60px #a2dee6;
@@ -121,6 +122,29 @@ const CaseModal = styled.h1`
   font-weight: 500;
   color: grey;
 `;
+
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+const headerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+};
 const Main = () => {
   const [showLoader, setLoader] = useState(true);
 
@@ -158,13 +182,24 @@ const Main = () => {
       ) : (
         <>
           <ColDiv>
-            <ParaDiv height="40vh" ins={true}>
+            <ParaDiv
+              height="40vh"
+              ins={true}
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
               <InputDiv
                 placeholder="Drop your paragraph here..."
                 ref={paragraphRef}
               />
             </ParaDiv>
-            <ParaDivHlp height="8vh">
+            <ParaDivHlp
+              height="8vh"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
               <InputDivInput
                 placeholder="Enter Your Question..."
                 ref={questionRef}
@@ -183,7 +218,12 @@ const Main = () => {
               )}
             </ParaDiv>
           </ColDiv>
-          <HeaderDiv>
+          <HeaderDiv
+            height="8vh"
+            variants={headerVariants}
+            initial="hidden"
+            animate="visible"
+          >
             <HelperDiv>M</HelperDiv>
             <HelperDiv>E</HelperDiv>
             <HelperDiv>N</HelperDiv>

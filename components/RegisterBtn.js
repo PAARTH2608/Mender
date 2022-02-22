@@ -35,7 +35,6 @@ const dropIn = {
       damping: 30,
     },
   },
-
 };
 const RegisterBtn = () => {
   return (

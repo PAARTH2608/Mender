@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from 'framer-motion';
 import { FaArrowRight } from "react-icons/fa";
 
 const MainDiv = styled.div`
@@ -6,7 +7,7 @@ const MainDiv = styled.div`
   width: 100%;
   margin-bottom: 3rem;
 `;
-const Hlpr = styled.div`
+const Hlpr = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,11 +45,38 @@ const ArwDiv = styled.div`
     cursor: pointer;
   }
 `;
+
+const dropIn = {
+  hidden: {
+    x: "-100vh",
+    opacity: 0,
+  },
+  visible: {
+    x: "0",
+    opacity: 1,
+    transition: {
+      duration: 2.3,
+      type: "spring",
+      stiffness: 500,
+      damping: 30,
+    },
+  },
+  exit: {
+    x: "-100vh",
+    opacity: 0,
+  }
+};
 const Manual = () => {
   return (
     <MainDiv>
       <Hlpr2>
-        <Hlpr>
+        <Hlpr
+          onClick={(e) => e.stopPropagation()}
+          variants={dropIn}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+        >
           <Hdg>Your Name</Hdg>
           <InpCnt placeholder="Please enter your name" />
         </Hlpr>
