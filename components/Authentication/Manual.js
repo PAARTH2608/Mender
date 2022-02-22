@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 
+// styles
 const MainDiv = styled.div`
   height: 5rem;
   width: 100%;
@@ -32,7 +33,7 @@ const InpCnt = styled.input`
   width: 100%;
   font-size: 1.2em;
 `;
-const ArwDiv = styled.div`
+const ArwDiv = styled(motion.div)`
   box-shadow: 20px 20px 60px #78a4aa, -20px -20px 60px #a2dee6;
   height: 5rem;
   width: 5rem;
@@ -46,6 +47,7 @@ const ArwDiv = styled.div`
   }
 `;
 
+// framer motion
 const dropIn = {
   hidden: {
     x: "-100vh",
@@ -64,8 +66,20 @@ const dropIn = {
   exit: {
     x: "-100vh",
     opacity: 0,
-  }
+  },
 };
+const headerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+};
+
 const Manual = () => {
   return (
     <MainDiv>
@@ -80,7 +94,12 @@ const Manual = () => {
           <Hdg>Your Name</Hdg>
           <InpCnt placeholder="Please enter your name" />
         </Hlpr>
-        <ArwDiv>
+        <ArwDiv
+          height="8vh"
+          variants={headerVariants}
+          initial="hidden"
+          animate="visible"
+        >
           <FaArrowRight size={20} />
         </ArwDiv>
       </Hlpr2>

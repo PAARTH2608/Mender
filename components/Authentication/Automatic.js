@@ -2,8 +2,9 @@ import { useState } from "react";
 import styled from "styled-components";
 import { firebase } from "../../firebase/firebase";
 import { FaGoogle, FaFacebookF } from "react-icons/fa";
+import { motion } from "framer-motion";
 
-const MainDiv = styled.div`
+const MainDiv = styled(motion.div)`
   height: 10vh;
   width: 60%;
   box-shadow: 20px 20px 60px #78a4aa, -20px -20px 60px #a2dee6;
@@ -19,7 +20,7 @@ const BtnDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   &:hover {
     cursor: pointer;
   }
@@ -31,8 +32,18 @@ const Btn = styled.button`
   border: none;
 `;
 
+const headerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+};
 const Automatic = () => {
-  const [error, setError] = useState(false);
 
   const signInWithGoogle = () => {
     let google_provider = new firebase.auth.GoogleAuthProvider();
@@ -62,13 +73,25 @@ const Automatic = () => {
   };
   return (
     <>
-      <MainDiv onClick={signInWithGoogle}>
+      <MainDiv
+        onClick={signInWithGoogle}
+        height="8vh"
+        variants={headerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <BtnDiv>
           <FaGoogle size={20} />
           <Btn>Continue With Google</Btn>
         </BtnDiv>
       </MainDiv>
-      <MainDiv onClick={signInWithFacebook}>
+      <MainDiv
+        onClick={signInWithFacebook}
+        height="8vh"
+        variants={headerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <BtnDiv>
           <FaFacebookF size={20} />
           <Btn>Continue With Facebook</Btn>
