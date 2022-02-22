@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight } from "react-icons/fa";
 
 const MainDiv = styled.div`
   height: 5rem;
@@ -32,13 +32,17 @@ const InpCnt = styled.input`
   font-size: 1.2em;
 `;
 const ArwDiv = styled.div`
-box-shadow: 20px 20px 60px #78a4aa, -20px -20px 60px #a2dee6;
-height: 5rem;
-width: 5rem;
-border-radius: 50%;
-display: flex;
-justify-content: center;
-align-items: center;
+  box-shadow: 20px 20px 60px #78a4aa, -20px -20px 60px #a2dee6;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 const Manual = () => {
   return (
@@ -49,7 +53,7 @@ const Manual = () => {
           <InpCnt placeholder="Please enter your name" />
         </Hlpr>
         <ArwDiv>
-            <FaArrowRight size={20} />
+          <FaArrowRight size={20} />
         </ArwDiv>
       </Hlpr2>
     </MainDiv>

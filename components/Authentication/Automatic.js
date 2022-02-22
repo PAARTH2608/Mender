@@ -9,12 +9,20 @@ const MainDiv = styled.div`
   box-shadow: 20px 20px 60px #78a4aa, -20px -20px 60px #a2dee6;
   margin-top: 3rem;
   border-radius: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 const BtnDiv = styled.div`
   padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  &:hover {
+    cursor: pointer;
+  }
 `;
 const Btn = styled.button`
   padding: 0.5rem;
@@ -45,7 +53,7 @@ const Automatic = () => {
       .auth()
       .signInWithPopup(facebook_provider)
       .then((result) => {
-        console.log(result.additionalUserInfo.profile.email);
+        console.log(result);
         // setEmail(result.additionalUserInfo.profile.email);
         // dispatch(login({ email: result.additionalUserInfo.profile.email }));
         // setError("");

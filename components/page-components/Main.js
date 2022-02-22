@@ -11,8 +11,17 @@ const ParaDiv = styled.div`
   border-radius: 10px;
   box-shadow: 20px 20px 60px #78a4aa, -20px -20px 60px #a2dee6;
   z-index: 1;
+  padding: 1.5vh;
+  margin-bottom: 5vh;
+`;
+const ParaDivHlp = styled.div`
+  height: ${(props) => props.height};
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: 20px 20px 60px #78a4aa, -20px -20px 60px #a2dee6;
+  z-index: 1;
   padding: 2vh;
-  margin-bottom: 2vh;
+  margin-bottom: 5vh;
 `;
 const InputDiv = styled.textarea`
   background-color: transparent;
@@ -21,6 +30,32 @@ const InputDiv = styled.textarea`
   width: 100%;
   outline: none;
   font-size: 1.5em;
+  overflow: scroll;
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      99deg,
+      rgba(98, 84, 255, 1) 0%,
+      rgba(62, 195, 213, 1) 100%
+    );
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  ::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+  overflow-x: hidden;
 `;
 const InputDivInput = styled.input`
   background-color: transparent;
@@ -28,7 +63,8 @@ const InputDivInput = styled.input`
   height: 100%;
   width: 100%;
   outline: none;
-  font-size: 1.5em;
+  font-size: 1.3em;
+  text-align: center;
 `;
 const HeaderDiv = styled.div`
   height: 80vh;
@@ -41,14 +77,49 @@ const HeaderDiv = styled.div`
   justify-content: space-around;
   align-items: center;
 `;
-const HelperDiv = styled.div``;
+const HelperDiv = styled.div`
+  font-size: 1.3em;
+  overflow: scroll;
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      99deg,
+      rgba(98, 84, 255, 1) 0%,
+      rgba(62, 195, 213, 1) 100%
+    );
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  ::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+  overflow-x: hidden;
+`;
 const ColDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   width: 75%;
   height: 100vh;
+`;
+const CaseModal = styled.h1`
+  font-size: 1.3em;
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+  color: grey;
 `;
 const Main = () => {
   const [showLoader, setLoader] = useState(true);
@@ -87,19 +158,19 @@ const Main = () => {
       ) : (
         <>
           <ColDiv>
-            <ParaDiv height="40vh">
+            <ParaDiv height="40vh" ins={true}>
               <InputDiv
                 placeholder="Drop your paragraph here..."
                 ref={paragraphRef}
               />
             </ParaDiv>
-            <ParaDiv height="8vh">
+            <ParaDivHlp height="8vh">
               <InputDivInput
-                placeholder="Enter your question"
+                placeholder="Enter Your Question..."
                 ref={questionRef}
                 onKeyPress={answerQuestion}
               />
-            </ParaDiv>
+            </ParaDivHlp>
             <ParaDiv height="30vh">
               {answer ? (
                 <HelperDiv>
@@ -108,21 +179,21 @@ const Main = () => {
                   ))}
                 </HelperDiv>
               ) : (
-                "No answers found"
+                <CaseModal>No Answers Found</CaseModal>
               )}
             </ParaDiv>
           </ColDiv>
           <HeaderDiv>
-            <HelperDiv>L</HelperDiv>
-            <HelperDiv>O</HelperDiv>
-            <HelperDiv>R</HelperDiv>
+            <HelperDiv>M</HelperDiv>
             <HelperDiv>E</HelperDiv>
-            <HelperDiv>M</HelperDiv>
-            <HelperDiv>I</HelperDiv>
-            <HelperDiv>P</HelperDiv>
-            <HelperDiv>S</HelperDiv>
-            <HelperDiv>U</HelperDiv>
-            <HelperDiv>M</HelperDiv>
+            <HelperDiv>N</HelperDiv>
+            <HelperDiv>D</HelperDiv>
+            <HelperDiv>E</HelperDiv>
+            <HelperDiv>R</HelperDiv>
+            <HelperDiv></HelperDiv>
+            <HelperDiv>W</HelperDiv>
+            <HelperDiv>E</HelperDiv>
+            <HelperDiv>B</HelperDiv>
           </HeaderDiv>
         </>
       )}
