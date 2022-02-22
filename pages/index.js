@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Palette } from "../components/Palette";
 import Loader from "../components/Loader";
+import RegisterBtn from "../components/RegisterBtn";
 
 export const MainDiv = styled.div`
   background-color: ${Palette.maindiv};
@@ -22,16 +23,20 @@ const Title = styled.div`
   font-size: 2em;
 `;
 export default function Home() {
-  const [showLoader,setLoader] = useState(true)
-  useEffect(()=>{
-    setTimeout(function() {
-      setLoader(false)
-         }, 2000);
-       },
-   []);
+  const [showLoader, setLoader] = useState(true);
+
+  useEffect(() => {
+    setTimeout(function () {
+      setLoader(false);
+    }, 2000);
+  }, []);
   return (
-    <MainDiv>
-      {showLoader ? <Loader /> : <Title>Hello Fellas</Title>}
+    <MainDiv>{showLoader ? 
+      <Loader /> : 
+      <>
+        <RegisterBtn />
+        <Title>Hello Fellas</Title>
+      </>}
     </MainDiv>
   );
 }

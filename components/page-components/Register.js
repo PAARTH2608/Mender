@@ -5,6 +5,7 @@ import Loader from "../Loader";
 import Manual from "../Authentication/Manual";
 import Mid from "../Authentication/Mid";
 import Automatic from "../Authentication/Automatic";
+import { motion } from "framer-motion";
 
 const Util = styled.div`
   display: flex;
