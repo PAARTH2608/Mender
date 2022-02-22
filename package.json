@@ -12,6 +12,7 @@
     "@tensorflow-models/qna": "^1.0.0",
     "@tensorflow/tfjs": "^3.13.0",
     "babel-plugin-styled-components": "^2.0.3",
+    "firebase": "^9.6.7",
     "framer-motion": "^6.2.6",
     "next": "12.1.0",
     "react": "17.0.2",
