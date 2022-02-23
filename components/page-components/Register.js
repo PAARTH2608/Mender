@@ -7,7 +7,7 @@ import Mid from "../Authentication/Mid";
 import Automatic from "../Authentication/Automatic";
 import { motion } from "framer-motion";
 
-import { signIn, signOut, useSession } from 'next-auth/client'
+// import { signIn, signOut, useSession } from 'next-auth/client'
 
 const Util = styled.div`
   display: flex;
