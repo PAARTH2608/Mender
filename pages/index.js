@@ -4,7 +4,7 @@ import { Palette } from "../components/Palette";
 import Loader from "../components/Loader";
 import RegisterBtn from "../components/RegisterBtn";
 import { motion } from "framer-motion";
-import { dropIn } from '../components/Authentication/Manual';
+import { dropIn } from "../components/Authentication/Manual";
 
 export const MainDiv = styled.div`
   background-color: ${Palette.maindiv};
@@ -34,17 +34,22 @@ export default function Home() {
     }, 2000);
   }, []);
   return (
-    <MainDiv>{showLoader ? 
-      <Loader /> : 
-      <>
-        <RegisterBtn />
-        <Title
-                  variants={dropIn}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-        >Hello Fellas</Title>
-      </>}
+    <MainDiv>
+      {showLoader ? (
+        <Loader />
+      ) : (
+        <>
+          <RegisterBtn />
+          <Title
+            variants={dropIn}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            Hello Fellas
+          </Title>
+        </>
+      )}
     </MainDiv>
   );
 }
