@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Palette } from "../components/Palette";
 import Loader from "../components/Loader";
 import RegisterBtn from "../components/RegisterBtn";
+import { motion } from "framer-motion";
+import { dropIn } from '../components/Authentication/Manual';
 
 export const MainDiv = styled.div`
   background-color: ${Palette.maindiv};
@@ -13,7 +15,7 @@ export const MainDiv = styled.div`
   align-items: center;
   position: relative;
 `;
-const Title = styled.div`
+const Title = styled(motion.div)`
   height: 10vh;
   width: 20%;
   border-radius: 10px;
@@ -22,6 +24,7 @@ const Title = styled.div`
   padding: 2vh;
   font-size: 2em;
 `;
+
 export default function Home() {
   const [showLoader, setLoader] = useState(true);
 
@@ -35,7 +38,12 @@ export default function Home() {
       <Loader /> : 
       <>
         <RegisterBtn />
-        <Title>Hello Fellas</Title>
+        <Title
+                  variants={dropIn}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+        >Hello Fellas</Title>
       </>}
     </MainDiv>
   );

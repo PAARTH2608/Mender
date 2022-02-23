@@ -1,4 +1,4 @@
-import { useState } from "react";
+import Router from 'next/router';
 import styled from "styled-components";
 import { firebase } from "../../firebase/firebase";
 import { FaGoogle, FaFacebookF } from "react-icons/fa";
@@ -30,6 +30,10 @@ const Btn = styled.button`
   font-size: 1.3rem;
   background-color: transparent;
   border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const headerVariants = {
@@ -51,7 +55,12 @@ const Automatic = () => {
       .auth()
       .signInWithPopup(google_provider)
       .then((result) => {
-        console.log(result.additionalUserInfo.profile.email);
+        if (result.additionalUserInfo.profile.verified_email) {
+          Router.push("/main");
+        }
+        else{
+          Router.push("/404");
+        }
         // setEmail(result.additionalUserInfo.profile.email);
         // dispatch(login({ email: result.additionalUserInfo.profile.email }));
         // setError("");
@@ -64,7 +73,12 @@ const Automatic = () => {
       .auth()
       .signInWithPopup(facebook_provider)
       .then((result) => {
-        console.log(result);
+        if (result.additionalUserInfo.profile.verified_email) {
+          Router.push("/main");
+        }
+        else{
+          Router.push("/404");
+        }
         // setEmail(result.additionalUserInfo.profile.email);
         // dispatch(login({ email: result.additionalUserInfo.profile.email }));
         // setError("");

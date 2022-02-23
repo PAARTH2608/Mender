@@ -48,7 +48,7 @@ const ArwDiv = styled(motion.div)`
 `;
 
 // framer motion
-const dropIn = {
+export const dropIn = {
   hidden: {
     x: "-100vh",
     opacity: 0,
@@ -62,11 +62,7 @@ const dropIn = {
       stiffness: 500,
       damping: 30,
     },
-  },
-  exit: {
-    x: "-100vh",
-    opacity: 0,
-  },
+  }
 };
 const headerVariants = {
   hidden: {
