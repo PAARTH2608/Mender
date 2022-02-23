@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { FaArrowRight } from "react-icons/fa";
+import Button from '../utils/Button';
 
 // styles
 const MainDiv = styled.div`
@@ -33,19 +33,7 @@ const InpCnt = styled.input`
   width: 100%;
   font-size: 1.2em;
 `;
-const ArwDiv = styled(motion.div)`
-  box-shadow: 20px 20px 60px #78a4aa, -20px -20px 60px #a2dee6;
-  height: 5rem;
-  width: 5rem;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  &:hover {
-    cursor: pointer;
-  }
-`;
 
 // framer motion
 export const dropIn = {
@@ -64,17 +52,6 @@ export const dropIn = {
     },
   }
 };
-const headerVariants = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 1,
-    },
-  },
-};
 
 const Manual = () => {
   return (
@@ -90,14 +67,7 @@ const Manual = () => {
           <Hdg>Your Name</Hdg>
           <InpCnt placeholder="Please enter your name" />
         </Hlpr>
-        <ArwDiv
-          height="8vh"
-          variants={headerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <FaArrowRight size={20} />
-        </ArwDiv>
+        <Button attr={true}/>
       </Hlpr2>
     </MainDiv>
   );

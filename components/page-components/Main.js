@@ -107,6 +107,13 @@ const HelperDiv = styled.div`
   }
   overflow-x: hidden;
 `;
+const HelperTwo = styled.div`
+font-size: 1.3em;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+`;
 const ColDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -224,16 +231,16 @@ const Main = () => {
             initial="hidden"
             animate="visible"
           >
-            <HelperDiv>M</HelperDiv>
-            <HelperDiv>E</HelperDiv>
-            <HelperDiv>N</HelperDiv>
-            <HelperDiv>D</HelperDiv>
-            <HelperDiv>E</HelperDiv>
-            <HelperDiv>R</HelperDiv>
-            <HelperDiv></HelperDiv>
-            <HelperDiv>W</HelperDiv>
-            <HelperDiv>E</HelperDiv>
-            <HelperDiv>B</HelperDiv>
+            <HelperTwo>M</HelperTwo>
+            <HelperTwo>E</HelperTwo>
+            <HelperTwo>N</HelperTwo>
+            <HelperTwo>D</HelperTwo>
+            <HelperTwo>E</HelperTwo>
+            <HelperTwo>R</HelperTwo>
+            <HelperTwo></HelperTwo>
+            <HelperTwo>W</HelperTwo>
+            <HelperTwo>E</HelperTwo>
+            <HelperTwo>B</HelperTwo>
           </HeaderDiv>
         </>
       )}
