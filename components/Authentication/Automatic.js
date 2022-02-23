@@ -1,4 +1,5 @@
 import Router from 'next/router';
+import { useState } from 'react';
 import styled from "styled-components";
 import { firebase } from "../../firebase/firebase";
 import { FaGoogle, FaFacebookF } from "react-icons/fa";
@@ -47,8 +48,14 @@ const headerVariants = {
     },
   },
 };
+const Helper = styled.div`
+font-size: 1.3rem;
+text-align: center;
+color: grey;
+padding-top:2vh;
+`;
 const Automatic = () => {
-
+  let bool = false;
   const signInWithGoogle = () => {
     let google_provider = new firebase.auth.GoogleAuthProvider();
     firebase
@@ -56,6 +63,7 @@ const Automatic = () => {
       .signInWithPopup(google_provider)
       .then((result) => {
         if (result.additionalUserInfo.profile.verified_email) {
+
           Router.push("/main");
         }
         else{
@@ -73,10 +81,12 @@ const Automatic = () => {
       .auth()
       .signInWithPopup(facebook_provider)
       .then((result) => {
+        bool = result.additionalUserInfo.profile.verified_email;
         if (result.additionalUserInfo.profile.verified_email) {
           Router.push("/main");
         }
         else{
+          bool = false;
           Router.push("/404");
         }
         // setEmail(result.additionalUserInfo.profile.email);
@@ -99,6 +109,7 @@ const Automatic = () => {
           <Btn>Continue With Google</Btn>
         </BtnDiv>
       </MainDiv>
+      {bool && <Helper>Please wait a moment...</Helper>}
       <MainDiv
         onClick={signInWithFacebook}
         height="8vh"

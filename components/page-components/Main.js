@@ -5,6 +5,8 @@ import Loader from "../Loader";
 import * as tf from "@tensorflow/tfjs";
 import * as qna from "@tensorflow-models/qna";
 import { motion } from "framer-motion";
+import Button from "../utils/Button";
+import { FaArrowRight } from "react-icons/fa";
 
 const ParaDiv = styled(motion.div)`
   height: ${(props) => props.height};
@@ -22,7 +24,9 @@ const ParaDivHlp = styled(motion.div)`
   box-shadow: 20px 20px 60px #78a4aa, -20px -20px 60px #a2dee6;
   z-index: 1;
   padding: 2vh;
-  margin-bottom: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 const InputDiv = styled.textarea`
   background-color: transparent;
@@ -108,11 +112,11 @@ const HelperDiv = styled.div`
   overflow-x: hidden;
 `;
 const HelperTwo = styled.div`
-font-size: 1.3em;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: space-around;
+  font-size: 1.3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 `;
 const ColDiv = styled.div`
   display: flex;
@@ -128,6 +132,28 @@ const CaseModal = styled.h1`
   margin: 0;
   font-weight: 500;
   color: grey;
+`;
+const Handle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+  padding-bottom: 5vh;
+`;
+const ArwDiv = styled(motion.button)`
+  box-shadow: 20px 20px 60px #78a4aa, -20px -20px 60px #a2dee6;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const containerVariants = {
@@ -152,6 +178,7 @@ const headerVariants = {
     },
   },
 };
+
 const Main = () => {
   const [showLoader, setLoader] = useState(true);
 
@@ -173,8 +200,8 @@ const Main = () => {
     }, 2000);
   }, []);
 
-  const answerQuestion = async (e) => {
-    if (e.which === 13 && model != null) {
+  const answerQuestion = async () => {
+    if (model != null) {
       const paragraph = paragraphRef.current.value;
       const question = questionRef.current.value;
       const answers = await model.findAnswers(question, paragraph);
@@ -201,18 +228,29 @@ const Main = () => {
                 ref={paragraphRef}
               />
             </ParaDiv>
-            <ParaDivHlp
-              height="8vh"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <InputDivInput
-                placeholder="Enter Your Question..."
-                ref={questionRef}
-                onKeyPress={answerQuestion}
-              />
-            </ParaDivHlp>
+            <Handle>
+              <ParaDivHlp
+                height="8vh"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <InputDivInput
+                  placeholder="Enter Your Question..."
+                  ref={questionRef}
+                  onKeyPress={answerQuestion}
+                />
+              </ParaDivHlp>
+              <ArwDiv
+                height="8vh"
+                variants={headerVariants}
+                initial="hidden"
+                animate="visible"
+                onClick={answerQuestion}
+              >
+                <FaArrowRight size={20} />
+              </ArwDiv>
+            </Handle>
             <ParaDiv height="30vh">
               {answer ? (
                 <HelperDiv>
