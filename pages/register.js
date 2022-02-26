@@ -1,9 +1,14 @@
-import Register from "../components/page-components/Register";
+import RegisterHelper from "../components/page-components/RegisterHelper";
+import { getProviders, signIn, signOut, useSession } from "next-auth/react";
 
-const register = () => {
-    return (
-        <Register />
-    );
-}
+const Register = () => {
+  const { data: session, loading } = useSession();
+  console.log(session);
+  return (
+    <>
+      <RegisterHelper />
+    </>
+  );
+};
 
-export default register;
+export default Register;

@@ -1,9 +1,9 @@
 import Router from 'next/router';
 import { useState } from 'react';
 import styled from "styled-components";
-import { firebase } from "../../firebase/firebase";
-import { FaGoogle, FaFacebookF } from "react-icons/fa";
+import { FaGoogle, FaFacebookF, FaUserLock } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { signIn, signOut } from "next-auth/react";
 
 const MainDiv = styled(motion.div)`
   height: 10vh;
@@ -56,72 +56,21 @@ padding-top:2vh;
 `;
 const Automatic = () => {
   let bool = false;
-  const signInWithGoogle = () => {
-    let google_provider = new firebase.auth.GoogleAuthProvider();
-    firebase
-      .auth()
-      .signInWithPopup(google_provider)
-      .then((result) => {
-        if (result.additionalUserInfo.profile.verified_email) {
-
-          Router.push("/main");
-        }
-        else{
-          Router.push("/404");
-        }
-        // setEmail(result.additionalUserInfo.profile.email);
-        // dispatch(login({ email: result.additionalUserInfo.profile.email }));
-        // setError("");
-      })
-      .catch((error) => {});
-  };
-  const signInWithFacebook = () => {
-    let facebook_provider = new firebase.auth.FacebookAuthProvider();
-    firebase
-      .auth()
-      .signInWithPopup(facebook_provider)
-      .then((result) => {
-        bool = result.additionalUserInfo.profile.verified_email;
-        if (result.additionalUserInfo.profile.verified_email) {
-          Router.push("/main");
-        }
-        else{
-          bool = false;
-          Router.push("/404");
-        }
-        // setEmail(result.additionalUserInfo.profile.email);
-        // dispatch(login({ email: result.additionalUserInfo.profile.email }));
-        // setError("");
-      })
-      .catch((error) => {});
-  };
   return (
     <>
       <MainDiv
-        onClick={signInWithGoogle}
+        onClick={() => signIn()}
         height="8vh"
         variants={headerVariants}
         initial="hidden"
         animate="visible"
       >
         <BtnDiv>
-          <FaGoogle size={20} />
-          <Btn>Continue With Google</Btn>
+          <FaUserLock size={20} />
+          <Btn>Please Authenticate</Btn>
         </BtnDiv>
       </MainDiv>
       {bool && <Helper>Please wait a moment...</Helper>}
-      <MainDiv
-        onClick={signInWithFacebook}
-        height="8vh"
-        variants={headerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <BtnDiv>
-          <FaFacebookF size={20} />
-          <Btn>Continue With Facebook</Btn>
-        </BtnDiv>
-      </MainDiv>
     </>
   );
 };

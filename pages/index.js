@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useSession } from "next-auth/react";
 import { Palette } from "../components/Palette";
 import Loader from "../components/Loader";
-import RegisterBtn from "../components/RegisterBtn";
 import { motion } from "framer-motion";
-import { dropIn } from "../components/Authentication/Manual";
+import Register from "./register";
+import Link from "next/link";
 
 export const MainDiv = styled.div`
   background-color: ${Palette.maindiv};
@@ -25,8 +26,25 @@ const Title = styled(motion.div)`
   font-size: 2em;
 `;
 
+const dropIn = {
+  hidden: {
+    x: "-100vh",
+    opacity: 0,
+  },
+  visible: {
+    x: "0",
+    opacity: 1,
+    transition: {
+      duration: 2.3,
+      type: "spring",
+      stiffness: 500,
+      damping: 30,
+    },
+  }
+};
 export default function Home() {
   const [showLoader, setLoader] = useState(true);
+  const { data: session, loading } = useSession();
 
   useEffect(() => {
     setTimeout(function () {
@@ -34,22 +52,28 @@ export default function Home() {
     }, 2000);
   }, []);
   return (
-    <MainDiv>
-      {showLoader ? (
-        <Loader />
-      ) : (
-        <>
-          <RegisterBtn />
-          <Title
-            variants={dropIn}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-          >
-            Hello Fellas
-          </Title>
-        </>
+    <>
+      {!session && <Register />}
+      {session && (
+        <MainDiv>
+          {showLoader ? (
+            <Loader />
+          ) : (
+            <>
+            <Link href='/main' passHref>
+              <Title
+                variants={dropIn}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                Hello Fellas
+              </Title>
+            </Link>
+            </>
+          )}
+        </MainDiv>
       )}
-    </MainDiv>
+    </>
   );
 }

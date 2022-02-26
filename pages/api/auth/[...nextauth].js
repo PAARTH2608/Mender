@@ -1,11 +1,15 @@
 import NextAuth from 'next-auth';
-import Providers from 'next-auth/providers';
+import GithubProvider from 'next-auth/providers/github';
 
 export default NextAuth({
     providers: [
-        Providers.GitHub({
+        GithubProvider({
             clientId: process.env.GITHUB_ID,
             clientSecret: process.env.GITHUB_SECRET,
-        })
-    ]
+        }),
+    ],
+    secret: process.env.SECRET,
+    // pages: {
+    //     signIn: '/register',
+    // }
 })

@@ -2,12 +2,7 @@ import { useState, useEffect } from "react";
 import { MainDiv } from "../../pages/index";
 import styled from "styled-components";
 import Loader from "../Loader";
-import Manual from "../Authentication/Manual";
-import Mid from "../Authentication/Mid";
 import Automatic from "../Authentication/Automatic";
-import { motion } from "framer-motion";
-
-// import { signIn, signOut, useSession } from 'next-auth/client'
 
 const Util = styled.div`
   display: flex;
@@ -16,7 +11,7 @@ const Util = styled.div`
   justify-content: center;
   width: 50%;
 `;
-const Register = () => {
+const RegisterHelper = () => {
   const [showLoader, setLoader] = useState(true);
   useEffect(() => {
     setTimeout(function () {
@@ -29,8 +24,6 @@ const Register = () => {
         <Loader />
       ) : (
         <Util>
-          <Manual />
-          <Mid />
           <Automatic />
         </Util>
       )}
@@ -38,4 +31,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterHelper;
