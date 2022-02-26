@@ -8,8 +8,7 @@ export default NextAuth({
             clientSecret: process.env.GITHUB_SECRET,
         }),
     ],
-    secret: process.env.SECRET,
-    // pages: {
-    //     signIn: '/register',
-    // }
+    jwt: {
+        signingKey: process.env.JWT_SIGNING_PRIVATE_KEY,
+    }
 })
