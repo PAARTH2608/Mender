@@ -36,7 +36,7 @@ To get a local copy up and running follow these simple steps.
 ## Installation
 Clone the repo
    ```sh
-   https://github.com/PAARTH2608/Mender.gi
+   https://github.com/PAARTH2608/Mender.git
    ```
 ## Frontend
 Install all the npm packages. Go into the project folder and type the following command to install all npm packages.</br>
