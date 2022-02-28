@@ -1,10 +1,8 @@
-# Mender
+# <h1 align="center">Mender Web</h1>
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <h3 align="center">Mender Web</h3>
-
   <p align="center">
     A website to answer user's question related to a paragraph/article provided by the user. The trained model goes through the paragraph/article and tries to answer 
     the queries if it can be found in the paragraph
@@ -41,7 +39,7 @@ Clone the repo
    https://github.com/PAARTH2608/Mender.gi
    ```
 ## Frontend
-Install all the npm packages. Go into the project folder and type the following command to install all npm packages
+Install all the npm packages. Go into the project folder and type the following command to install all npm packages.</br>
 Using YARN
 ```bash
 yarn 
