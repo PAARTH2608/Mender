@@ -7,7 +7,7 @@
     A website to answer user's question related to a paragraph/article provided by the user. The trained model goes through the paragraph/article and tries to answer 
     the queries if it can be found in the paragraph
     <br />
-    <a href="./"><strong>Explore the code »</strong></a>
+    <a href="."><strong>Explore the code »</strong></a>
     <br />
     <br />
   
