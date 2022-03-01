@@ -6,6 +6,7 @@ import Loader from "../components/Loader";
 import { motion } from "framer-motion";
 import Register from "./register";
 import Link from "next/link";
+import Social from "../components/socials/social";
 
 export const MainDiv = styled.div`
   background-color: ${Palette.maindiv};
@@ -72,6 +73,7 @@ export default function Home() {
             </Link>
             </>
           )}
+          <Social />
         </MainDiv>
       )}
     </>
