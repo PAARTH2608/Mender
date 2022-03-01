@@ -3,6 +3,7 @@ import { MainDiv } from "../../pages/index";
 import styled from "styled-components";
 import Loader from "../Loader";
 import Automatic from "../Authentication/Automatic";
+import Social from "../socials/social";
 
 const Util = styled.div`
   display: flex;
@@ -27,6 +28,7 @@ const RegisterHelper = () => {
           <Automatic />
         </Util>
       )}
+      <Social />
     </MainDiv>
   );
 };

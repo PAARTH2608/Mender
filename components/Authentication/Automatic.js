@@ -37,7 +37,7 @@ const Btn = styled.button`
   }
 `;
 
-const headerVariants = {
+export const headerVariants = {
   hidden: {
     opacity: 0,
   },
