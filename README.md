@@ -30,16 +30,13 @@
 
 To get a local copy up and running follow these simple steps.
 
-## Frontend Prerequisites
-- React 17.0.2
-
 ## Installation
 Clone the repo
    ```sh
    https://github.com/PAARTH2608/Mender.git
    ```
 ## Frontend
-Install all the npm packages. Go into the project folder and type the following command to install all npm packages.</br>
+Install all the npm/yarn packages. Go into the project folder and type the following command to install all npm/yarn packages.</br>
 Using YARN
 ```bash
 yarn 
