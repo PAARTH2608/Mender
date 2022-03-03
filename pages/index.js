@@ -7,7 +7,7 @@ import { Palette } from "../components/Palette";
 import Loader from "../components/Loader";
 import { motion } from "framer-motion";
 import Register from "./register";
-import Social from "../components/socials/social";
+import Social from "../components/social";
 import Women from "../public/women.svg";
 
 export const MainDiv = styled.div`

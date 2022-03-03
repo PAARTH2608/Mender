@@ -8,7 +8,7 @@ import {
   FaTwitter,
   FaLinkedinIn,
 } from "react-icons/fa";
-import { headerVariants } from "../Authentication/Automatic";
+import { headerVariants } from "./Authentication/Automatic";
 
 const MainContainer = styled(motion.div)`
   position: absolute;

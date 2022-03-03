@@ -3,7 +3,7 @@ import { MainDiv } from "../../pages/index";
 import styled from "styled-components";
 import Loader from "../Loader";
 import Automatic from "../Authentication/Automatic";
-import Social from "../socials/social";
+import Social from "../social";
 
 const Util = styled.div`
   display: flex;
