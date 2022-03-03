@@ -49,11 +49,27 @@ const Col = styled.div`
   width: 60%;
 `;
 const ImgDiv = styled.div`
-width: 40%;
-display: flex;
-justify-content: center;
-align-items: center;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
+const Button = styled(motion.button)`
+  padding: 2vh;
+  box-shadow: 20px 20px 60px #78a4aa, -20px -20px 60px #a2dee6;
+  background: transparent;
+  outline: none;
+  border: none;
+  font-size: 1.5em;
+  border-radius: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+// framer motion function
 const dropIn = {
   hidden: {
     x: "-100vh",
@@ -70,8 +86,25 @@ const dropIn = {
     },
   },
 };
+const dropOut = {
+  hidden: {
+    x: "100vh",
+    opacity: 0,
+  },
+  visible: {
+    x: "0",
+    opacity: 1,
+    transition: {
+      duration: 2.3,
+      type: "spring",
+      stiffness: 500,
+      damping: 30,
+    },
+  },
+};
 export default function Home() {
   const [showLoader, setLoader] = useState(true);
+  const [showBtn, setBtn] = useState(false);
   const { data: session, loading } = useSession();
 
   useEffect(() => {
@@ -79,6 +112,12 @@ export default function Home() {
       setLoader(false);
     }, 2000);
   }, []);
+  useEffect(() => {
+    setTimeout(function () {
+      setBtn(true);
+    }, 5000);
+  }, []);
+
   return (
     <>
       {!session && <Register />}
@@ -98,7 +137,7 @@ export default function Home() {
                     animate="visible"
                     exit="exit"
                     height="10vh"
-                    width="40%"
+                    width="25%"
                   >
                     Hello Fellas
                   </Title>
@@ -118,7 +157,24 @@ export default function Home() {
                   </Title>
                 </Col>
                 <ImgDiv>
-                  <Image src="/women.svg" alt="women" height={340} width={340} />
+                  <Image
+                    src="/women.svg"
+                    alt="women"
+                    height={340}
+                    width={340}
+                  />
+                  {showBtn && (
+                    <Link href="/main" passHref>
+                      <Button
+                        variants={dropOut}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                      >
+                        Explore
+                      </Button>
+                    </Link>
+                  )}
                 </ImgDiv>
               </Row>
             </>
