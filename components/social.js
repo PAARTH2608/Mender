@@ -1,8 +1,9 @@
+import Link from "next/link";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { IconContext } from "react-icons";
 import {
-  FaFacebook,
+  FaFacebookF,
   FaInstagram,
   FaGithub,
   FaTwitter,
@@ -32,11 +33,31 @@ const Social = () => {
         initial="hidden"
         animate="visible"
       >
-        <FaFacebook size={30} />
-        <FaInstagram size={30} />
-        <FaGithub size={30} />
-        <FaTwitter size={30} />
-        <FaLinkedinIn size={30} />
+        <Link href="https://github.com/PAARTH2608">
+          <a target="_blank">
+            <FaGithub size={33} />
+          </a>
+        </Link>
+        <Link href="https://www.instagram.com/_paarth7_/">
+          <a target="_blank">
+            <FaInstagram size={33} />
+          </a>
+        </Link>
+        <Link href="https://www.facebook.com/paarth.jain.906">
+          <a target="_blank">
+            <FaFacebookF size={33} />
+          </a>
+        </Link>
+        <Link href="https://www.linkedin.com/in/paarth-jain-470522208/">
+          <a target="_blank">
+            <FaLinkedinIn size={33} />
+          </a>
+        </Link>
+        <Link href="https://twitter.com/PAARTHJAIN7">
+          <a target="_blank">
+            <FaTwitter size={33} />
+          </a>
+        </Link>
       </MainContainer>
     </IconContext.Provider>
   );
