@@ -30,6 +30,7 @@ const Title = styled(motion.div)`
   padding: 2vh;
   font-size: 2em;
   margin-bottom: 2vh;
+  font-family: "Montserrat", sans-serif;
 `;
 const Helper = styled.div`
   width: 100%;
