@@ -17,7 +17,7 @@ export const MainDiv = styled.div`
   display: flex;
   flex-direction: ${(props) => (props.something ? "column" : "row")};
   justify-content: center;
-  align-items: flex-start;
+  align-items: ${props => props.type};
   position: relative;
   padding: 2%;
 `;

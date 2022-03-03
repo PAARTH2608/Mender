@@ -5,7 +5,6 @@ import Loader from "../Loader";
 import * as tf from "@tensorflow/tfjs";
 import * as qna from "@tensorflow-models/qna";
 import { motion } from "framer-motion";
-import Button from "../utils/Button";
 import { FaArrowRight } from "react-icons/fa";
 
 const ParaDiv = styled(motion.div)`
@@ -124,7 +123,7 @@ const ColDiv = styled.div`
   align-items: center;
   justify-content: center;
   width: 75%;
-  height: 100vh;
+  height: 94vh;
 `;
 const CaseModal = styled.h1`
   font-size: 1.3em;
@@ -156,6 +155,7 @@ const ArwDiv = styled(motion.button)`
   }
 `;
 
+// framer motion functions
 const containerVariants = {
   hidden: {
     opacity: 0,

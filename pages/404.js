@@ -1,7 +1,8 @@
+import Link from "next/link";
+import Image from "next/image";
 import styled from "styled-components";
 import { MainDiv } from "./index";
 import Button from "../components/utils/Button";
-import Link from "next/link";
 
 const InnerDiv = styled.div`
   display: flex;
@@ -16,12 +17,15 @@ const InnerDiv = styled.div`
 `;
 const Custom404 = () => {
   return (
-    <MainDiv>
-      <Button attr={false} />
+    <MainDiv type="center">
+      <Link href='/' passHref>
+        <Button attr={false} />
+      </Link>
       <InnerDiv>
         Looks like you encountered with some problem:\ Please go back and try
         again.
       </InnerDiv>
+      <Image src='/man.svg' alt='man' height={240} width={240}/>
     </MainDiv>
   );
 };
