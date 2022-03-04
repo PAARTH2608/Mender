@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { MainDiv } from "../../pages/index";
 import styled from "styled-components";
 import Loader from "../Loader";
@@ -7,8 +8,7 @@ import Social from "../social";
 
 const Util = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
   width: 50%;
 `;
@@ -26,6 +26,7 @@ const RegisterHelper = () => {
       ) : (
         <Util>
           <Automatic />
+          <Image src="/man1.svg" alt="man" height={740} width={440} />
         </Util>
       )}
       <Social />

@@ -17,7 +17,7 @@ export const MainDiv = styled.div`
   display: flex;
   flex-direction: ${(props) => (props.something ? "column" : "row")};
   justify-content: center;
-  align-items: ${props => props.type};
+  align-items: ${(props) => props.type};
   position: relative;
   padding: 2%;
 `;
@@ -28,8 +28,8 @@ const Title = styled(motion.div)`
   background: #8dc1c8;
   box-shadow: 20px 20px 60px #78a4aa, -20px -20px 60px #a2dee6;
   padding: 2vh;
-  font-size: 2em;
-  margin-bottom: 2vh;
+  font-size: 1.9rem;
+  margin-bottom: 4vh;
   font-family: "Montserrat", sans-serif;
 `;
 const Helper = styled.div`
@@ -68,6 +68,11 @@ const Button = styled(motion.button)`
   &:hover {
     cursor: pointer;
   }
+`;
+const SmlTitle = styled.h2`
+  font-size: 1.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
 `;
 
 // framer motion function
@@ -147,14 +152,17 @@ export default function Home() {
                     initial="hidden"
                     animate="visible"
                     exit="exit"
-                    height="40vh"
+                    height="32vh"
                     width="100%"
                   >
                     Concept :<br></br>
-                    This website works on the concept of Natural Language
-                    Processing. We have used a pre-trained NLP model which takes
-                    a paragraph/article as input, reads it and tries to answer
-                    the question asked by the user based on that article.
+                    <SmlTitle>
+                      This website works on the concept of Natural Language
+                      Processing. We have used a pre-trained NLP model which
+                      takes a paragraph/article as input, reads it and tries to
+                      answer the question asked by the user based on that
+                      article.
+                    </SmlTitle>
                   </Title>
                 </Col>
                 <ImgDiv>

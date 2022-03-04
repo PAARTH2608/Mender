@@ -25,7 +25,7 @@ const Custom404 = () => {
         Looks like you encountered with some problem:\ Please go back and try
         again.
       </InnerDiv>
-      <Image src='/man.svg' alt='man' height={240} width={240}/>
+      <Image src='/man.svg' alt='man' height={340} width={340}/>
     </MainDiv>
   );
 };
