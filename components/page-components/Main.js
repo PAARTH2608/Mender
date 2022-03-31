@@ -149,6 +149,7 @@ const ArwDiv = styled(motion.button)`
   align-items: center;
   background-color: transparent;
   border: none;
+  outline: none;
 
   &:hover {
     cursor: pointer;

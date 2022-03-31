@@ -15,6 +15,13 @@ const MainDiv = styled(motion.div)`
   &:hover {
     cursor: pointer;
   }
+
+  @media (max-width: 1250px) {
+    width: 80%;
+  }
+  @media (max-width: 1100px) {
+    width: 100%;
+  }
 `;
 const BtnDiv = styled.div`
   padding: 1rem;
